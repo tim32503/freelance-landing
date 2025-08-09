@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <style type="text/tailwindcss">
-      @theme {
+    @theme {
         --color-primary: #40916c;
         --rounded-button: 8px;
       }
@@ -135,7 +135,9 @@
   <!-- 導航欄 -->
   <header class="fixed w-full bg-white shadow-sm z-50">
     <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+      <a href="#" class="w-25">
+        <img src="assets/images/logo.png">
+      </a>
       <nav class="hidden md:flex items-center space-x-8">
         <a href="#services" class="text-gray-700 hover:text-primary font-medium transition duration-200">服務項目</a>
         <a href="#technologies" class="text-gray-700 hover:text-primary font-medium transition duration-200">技術能力</a>
@@ -1096,7 +1098,9 @@
       </div>
     </div>
   </section>
+  
   <!-- 訂閱區域 -->
+  <!--
   <section class="py-16 bg-primary/10">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
@@ -1112,12 +1116,17 @@
       </div>
     </div>
   </section>
+  -->
+  
   <!-- 頁尾 -->
+  <!--
   <footer class="bg-gray-800 text-white pt-16 pb-8">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-3 gap-8 mb-12">
         <div>
-          <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 inline-block">logo</a>
+          <a href="#" class="w-3 h-3">
+            <img src="assets/images/favicon.png">
+          </a>
           <p class="text-gray-400 mb-6">專業的 Ruby on Rails 開發服務，為您打造高品質的網站系統和企業應用。</p>
           <div class="flex space-x-4">
             <a href="https://github.com/tim32503" class="text-gray-400 hover:text-white transition duration-200">
@@ -1166,6 +1175,8 @@
       </div>
     </div>
   </footer>
+  -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js">
   </script>
   <script id="chart-init">
@@ -1334,19 +1345,19 @@
         "fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out";
       mobileMenu.innerHTML = `
 <div class="flex justify-between items-center p-4 border-b">
-<a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
-<button class="close-menu w-10 h-10 flex items-center justify-center text-gray-700">
-<i class="ri-close-line ri-lg"></i>
-</button>
+  <a href="#" class="text-2xl font-['Pacifico'] text-primary">logo</a>
+  <button class="close-menu w-10 h-10 flex items-center justify-center text-gray-700">
+    <i class="ri-close-line ri-lg"></i>
+  </button>
 </div>
 <nav class="p-4">
-<ul class="space-y-4">
-<li><a href="#services" class="block py-2 text-gray-700 hover:text-primary font-medium">服務項目</a></li>
-<li><a href="#technologies" class="block py-2 text-gray-700 hover:text-primary font-medium">技術能力</a></li>
-<li><a href="#pricing" class="block py-2 text-gray-700 hover:text-primary font-medium">價目方案</a></li>
-<li><a href="#portfolio" class="block py-2 text-gray-700 hover:text-primary font-medium">作品集</a></li>
-<li><a href="#contact" class="block py-2 bg-primary text-white px-4 !rounded-button font-medium">聯絡我們</a></li>
-</ul>
+  <ul class="space-y-4">
+    <li><a href="#services" class="block py-2 text-gray-700 hover:text-primary font-medium">服務項目</a></li>
+    <li><a href="#technologies" class="block py-2 text-gray-700 hover:text-primary font-medium">技術能力</a></li>
+    <li><a href="#pricing" class="block py-2 text-gray-700 hover:text-primary font-medium">價目方案</a></li>
+    <li><a href="#portfolio" class="block py-2 text-gray-700 hover:text-primary font-medium">作品集</a></li>
+    <li><a href="#contact" class="block py-2 bg-primary text-white px-4 !rounded-button font-medium">聯絡我們</a></li>
+  </ul>
 </nav>
 `;
       document.body.appendChild(mobileMenu);
