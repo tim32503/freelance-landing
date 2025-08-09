@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rails 專業開發服務</title>
+  <title>兩盒 - 數位產品顧問</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
     input:focus,
     textarea:focus {
       outline: none;
-      border-color: #b5caa0;
+      border-color: var(--color-primary);
       box-shadow: 0 0 0 3px rgba(181, 202, 160, 0.2);
     }
 
@@ -62,14 +62,14 @@
       -webkit-appearance: none;
       width: 1.25rem;
       height: 1.25rem;
-      border: 2px solid #b5caa0;
+      border: 2px solid var(--color-primary);
       border-radius: 4px;
       cursor: pointer;
       position: relative;
     }
 
     .custom-checkbox:checked {
-      background-color: #b5caa0;
+      background-color: var(--color-primary);
     }
 
     .custom-checkbox:checked::after {
@@ -122,7 +122,7 @@
     }
 
     input:checked+.slider {
-      background-color: #b5caa0;
+      background-color: var(--color-primary);
     }
 
     input:checked+.slider:before {
@@ -367,13 +367,14 @@
             <h3 class="text-xl font-semibold mb-2">基礎方案</h3>
             <p class="text-gray-600 mb-6">適合小型網站和簡單應用</p>
             <div class="flex items-end mb-6">
-              <span class="text-4xl font-bold">NT$150,000</span>
+              <span class="text-4xl font-bold">NT$40,000</span>
               <span class="text-gray-500 ml-2">起</span>
             </div>
+            1~5 頁 RWD 網站、品牌色設計、AI 輔助 UI/UX、基礎 SEO、簡易後台管理
             <ul class="space-y-3 mb-8">
               <li class="flex items-start">
                 <i class="ri-check-line text-primary mt-1 mr-2"></i>
-                <span>基礎網站開發</span>
+                <span>基礎網站開發（1 ~ 5頁）</span>
               </li>
               <li class="flex items-start">
                 <i class="ri-check-line text-primary mt-1 mr-2"></i>
@@ -383,10 +384,6 @@
                 <i class="ri-check-line text-primary mt-1 mr-2"></i>
                 <span>內容管理系統</span>
               </li>
-              <li class="flex items-start">
-                <i class="ri-check-line text-primary mt-1 mr-2"></i>
-                <span>基本 SEO 優化</span>
-              </li>
               <li class="flex items-start text-gray-400">
                 <i class="ri-close-line mt-1 mr-2"></i>
                 <span>進階功能開發</span>
@@ -394,10 +391,6 @@
               <li class="flex items-start text-gray-400">
                 <i class="ri-close-line mt-1 mr-2"></i>
                 <span>API 整合</span>
-              </li>
-              <li class="flex items-start text-gray-400">
-                <i class="ri-close-line mt-1 mr-2"></i>
-                <span>專屬專案經理</span>
               </li>
             </ul>
           </div>
@@ -533,6 +526,7 @@
     </div>
   </section>
   <!-- 專案作品集 -->
+  <!--
   <section id="portfolio" class="py-20">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
@@ -688,6 +682,8 @@
       </div>
     </div>
   </section>
+  -->
+
   <!-- 聯絡資訊區 -->
   <section id="contact" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
@@ -701,31 +697,31 @@
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
-                <input type="text" id="name"
+                <input type="text" id="name" name="name"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-primary" placeholder="請輸入您的姓名">
               </div>
               <div>
                 <label for="email" class="block text-gray-700 font-medium mb-2">電子郵件</label>
-                <input type="email" id="email"
+                <input type="email" id="email" name="email"
                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-primary"
                   placeholder="請輸入您的電子郵件">
               </div>
             </div>
             <div>
               <label for="company" class="block text-gray-700 font-medium mb-2">公司名稱</label>
-              <input type="text" id="company"
+              <input type="text" id="company" name="company"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-primary" placeholder="請輸入您的公司名稱">
             </div>
             <div>
               <label for="service" class="block text-gray-700 font-medium mb-2">需求服務</label>
               <div class="relative">
-                <select id="service"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-lg appearance-none focus:border-primary pr-8">
+                <select id="service" name="service"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg appearance-none outline-hidden focus:border-primary pr-8">
                   <option value="" disabled selected>請選擇您需要的服務</option>
-                  <option value="website">網站系統開發</option>
-                  <option value="erp">ERP 系統建置</option>
-                  <option value="custom">客製化解決方案</option>
-                  <option value="other">其他服務</option>
+                  <option value="網站系統開發">網站系統開發</option>
+                  <option value="ERP 系統建置">ERP 系統建置</option>
+                  <option value="客製化解決方案">客製化解決方案</option>
+                  <option value="其他服務">其他服務</option>
                 </select>
                 <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <i class="ri-arrow-down-s-line text-gray-400"></i>
@@ -734,12 +730,12 @@
             </div>
             <div>
               <label for="message" class="block text-gray-700 font-medium mb-2">需求描述</label>
-              <textarea id="message" rows="5"
+              <textarea id="message" name="message" rows="5"
                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-primary"
                 placeholder="請詳細描述您的需求和預算..."></textarea>
             </div>
             <div class="flex items-start">
-              <input type="checkbox" id="privacy" class="custom-checkbox">
+              <input type="checkbox" id="privacy" name="privacy" class="custom-checkbox">
               <label for="privacy" class="ml-3 text-gray-600 text-sm">我同意網站的<a href="#"
                   class="text-primary hover:underline">隱私政策</a>，並允許處理我的個人資料</label>
             </div>
@@ -783,28 +779,21 @@
             <div class="pt-6 border-t border-gray-100">
               <h4 class="font-medium mb-4">社群媒體</h4>
               <div class="flex space-x-4">
-                <a href="#"
+                
+                <a href="https://lin.ee/XGrCOSK" target="_blank"
                   class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-200">
-                  <i class="ri-facebook-fill"></i>
+                  <i class="ri-line-fill"></i>
                 </a>
-                <a href="#"
-                  class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-200">
-                  <i class="ri-twitter-x-fill"></i>
-                </a>
-                <a href="#"
-                  class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-200">
-                  <i class="ri-linkedin-fill"></i>
-                </a>
-                <a href="#"
+                <a href="https://github.com/tim32503" target="_blank"
                   class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-200">
                   <i class="ri-github-fill"></i>
                 </a>
+                <a href="https://www.linkedin.com/in/tim32503" target="_blank"
+                  class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition duration-200">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+                
               </div>
-            </div>
-            <div class="pt-6 border-t border-gray-100">
-              <h4 class="font-medium mb-4">營業時間</h4>
-              <p class="text-gray-600">週一至週五: 9:00 - 18:00</p>
-              <p class="text-gray-600">週六、週日: 休息</p>
             </div>
           </div>
         </div>
@@ -1346,7 +1335,6 @@
     
     async function handleSubmit(event) {
       event.preventDefault();
-      var status = document.getElementById("contact-form-status");
       var data = new FormData(event.target);
       fetch(event.target.action, {
         method: form.method,
@@ -1356,19 +1344,19 @@
         }
       }).then(response => {
         if (response.ok) {
-          status.innerHTML = "您的需求已送出成功，我會盡快與您聯絡！";
+          alert("您的需求已送出成功，我會盡快與您聯絡！");
           form.reset()
         } else {
           response.json().then(data => {
             if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+              alert(data["errors"].map(error => error["message"]).join(", "));
             } else {
-              status.innerHTML = "喔不！送出您的需求時，遇到了些問題！您可以透過旁邊的其他聯絡方式與我聯繫！"
+              alert("喔不！送出您的需求時，遇到了些問題！您可以透過旁邊的其他聯絡方式與我聯繫！");
             }
           })
         }
       }).catch(error => {
-        status.innerHTML = "喔不！送出您的需求時，遇到了些問題！您可以透過旁邊的其他聯絡方式與我聯繫！"
+        alert("喔不！送出您的需求時，遇到了些問題！您可以透過旁邊的其他聯絡方式與我聯繫！");
       });
     }
     form.addEventListener("submit", handleSubmit)
