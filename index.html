@@ -692,12 +692,12 @@
   <section id="contact" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">與我們聯絡</h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">無論您有任何疑問或需求，我們都樂意為您提供協助。填寫以下表單，我們將在 24 小時內回覆您。</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">與我聯絡</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">無論您有任何疑問或需求，我都樂意為您提供協助。填寫以下表單，我將盡快回覆您。</p>
       </div>
       <div class="grid md:grid-cols-2 gap-12">
         <div>
-          <form class="space-y-6">
+          <form class="space-y-6" id="contact-form" action="https://formspree.io/f/xovlprwj" method="POST">
             <div class="grid md:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-gray-700 font-medium mb-2">姓名</label>
@@ -743,8 +743,9 @@
               <label for="privacy" class="ml-3 text-gray-600 text-sm">我同意網站的<a href="#"
                   class="text-primary hover:underline">隱私政策</a>，並允許處理我的個人資料</label>
             </div>
-            <button type="submit"
+            <button type="submit" id="submit-btn"
               class="bg-primary text-white px-8 py-3 !rounded-button font-medium hover:bg-primary/90 transition duration-200 whitespace-nowrap">送出需求</button>
+            <p id="contact-form-status"></p>
           </form>
         </div>
         <div class="bg-white p-8 rounded-lg shadow-sm">
@@ -1138,10 +1139,11 @@
             <a href="http://instagram.com/curihaosity" class="text-gray-400 hover:text-white transition duration-200">
               <i class="ri-instagram-line"></i>
             </a>
-            <a href="https://www.linkedin.com/in/tim32503/" class="text-gray-400 hover:text-white transition duration-200">
+            <a href="https://www.linkedin.com/in/tim32503/"
+              class="text-gray-400 hover:text-white transition duration-200">
               <i class="ri-linkedin-fill"></i>
             </a>
-            
+
           </div>
         </div>
         <div>
@@ -1337,6 +1339,41 @@
       });
     });
   </script>
+
+  <!-- 【與我聯絡】表單處理 Ajax -->
+  <script>
+    var form = document.getElementById("contact-form");
+    
+    async function handleSubmit(event) {
+      event.preventDefault();
+      var status = document.getElementById("contact-form-status");
+      var data = new FormData(event.target);
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          status.innerHTML = "您的需求已送出成功，我會盡快與您聯絡！";
+          form.reset()
+        } else {
+          response.json().then(data => {
+            if (Object.hasOwn(data, 'errors')) {
+              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+            } else {
+              status.innerHTML = "喔不！送出您的需求時，遇到了些問題！您可以透過旁邊的其他聯絡方式與我聯繫！"
+            }
+          })
+        }
+      }).catch(error => {
+        status.innerHTML = "喔不！送出您的需求時，遇到了些問題！您可以透過旁邊的其他聯絡方式與我聯繫！"
+      });
+    }
+    form.addEventListener("submit", handleSubmit)
+  </script>
+
   <script id="mobile-menu">
     document.addEventListener("DOMContentLoaded", function () {
       const menuButton = document.querySelector(".md\\:hidden");
